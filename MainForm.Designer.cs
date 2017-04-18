@@ -32,23 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.dgvSource = new System.Windows.Forms.DataGridView();
-            this.scRight = new System.Windows.Forms.SplitContainer();
-            this.pbArrow = new System.Windows.Forms.PictureBox();
-            this.btImport = new System.Windows.Forms.Button();
-            this.dgvDestination = new System.Windows.Forms.DataGridView();
-            this.顧客番号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.会社名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.部署DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.肩書DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.担当者DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.住所DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.電話番号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kitone顧客管理BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kintoneDataSet = new Salesforce2Kintone.KintoneDataSet();
-            this.kitone_顧客管理TableAdapter = new Salesforce2Kintone.KintoneDataSetTableAdapters.kitone_顧客管理TableAdapter();
-            this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salesforceDataSet = new Salesforce2Kintone.SalesforceDataSet();
-            this.contactTableAdapter = new Salesforce2Kintone.SalesforceDataSetTableAdapters.ContactTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,21 +87,42 @@
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.salesforceDataSet = new Salesforce2Kintone.SalesforceDataSet();
+            this.scRight = new System.Windows.Forms.SplitContainer();
+            this.pbArrow = new System.Windows.Forms.PictureBox();
+            this.btImport = new System.Windows.Forms.Button();
+            this.dgvDestination = new System.Windows.Forms.DataGridView();
+            this.contactTableAdapter = new Salesforce2Kintone.SalesforceDataSetTableAdapters.ContactTableAdapter();
+            this.kintoneDataSet = new Salesforce2Kintone.KintoneDataSet();
+            this.顧客リストBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.顧客リストTableAdapter = new Salesforce2Kintone.KintoneDataSetTableAdapters.顧客リストTableAdapter();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesforceDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scRight)).BeginInit();
             this.scRight.Panel1.SuspendLayout();
             this.scRight.Panel2.SuspendLayout();
             this.scRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDestination)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kitone顧客管理BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kintoneDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesforceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.顧客リストBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // scMain
@@ -212,148 +216,6 @@
             this.dgvSource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSource.Size = new System.Drawing.Size(481, 428);
             this.dgvSource.TabIndex = 1;
-            // 
-            // scRight
-            // 
-            this.scRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scRight.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.scRight.Location = new System.Drawing.Point(0, 0);
-            this.scRight.Name = "scRight";
-            // 
-            // scRight.Panel1
-            // 
-            this.scRight.Panel1.Controls.Add(this.pbArrow);
-            this.scRight.Panel1.Controls.Add(this.btImport);
-            // 
-            // scRight.Panel2
-            // 
-            this.scRight.Panel2.Controls.Add(this.dgvDestination);
-            this.scRight.Size = new System.Drawing.Size(612, 428);
-            this.scRight.SplitterDistance = 87;
-            this.scRight.TabIndex = 0;
-            // 
-            // pbArrow
-            // 
-            this.pbArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbArrow.Image")));
-            this.pbArrow.Location = new System.Drawing.Point(16, 171);
-            this.pbArrow.Name = "pbArrow";
-            this.pbArrow.Size = new System.Drawing.Size(54, 33);
-            this.pbArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbArrow.TabIndex = 4;
-            this.pbArrow.TabStop = false;
-            // 
-            // btImport
-            // 
-            this.btImport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btImport.Location = new System.Drawing.Point(7, 220);
-            this.btImport.Name = "btImport";
-            this.btImport.Size = new System.Drawing.Size(73, 27);
-            this.btImport.TabIndex = 3;
-            this.btImport.Text = "インポート";
-            this.btImport.UseVisualStyleBackColor = true;
-            this.btImport.Click += new System.EventHandler(this.btImport_Click);
-            // 
-            // dgvDestination
-            // 
-            this.dgvDestination.AllowUserToAddRows = false;
-            this.dgvDestination.AllowUserToDeleteRows = false;
-            this.dgvDestination.AllowUserToResizeRows = false;
-            this.dgvDestination.AutoGenerateColumns = false;
-            this.dgvDestination.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDestination.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.顧客番号DataGridViewTextBoxColumn,
-            this.会社名DataGridViewTextBoxColumn,
-            this.部署DataGridViewTextBoxColumn,
-            this.肩書DataGridViewTextBoxColumn,
-            this.担当者DataGridViewTextBoxColumn,
-            this.住所DataGridViewTextBoxColumn,
-            this.電話番号DataGridViewTextBoxColumn});
-            this.dgvDestination.DataSource = this.kitone顧客管理BindingSource;
-            this.dgvDestination.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDestination.Location = new System.Drawing.Point(0, 0);
-            this.dgvDestination.Name = "dgvDestination";
-            this.dgvDestination.ReadOnly = true;
-            this.dgvDestination.RowTemplate.Height = 21;
-            this.dgvDestination.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDestination.Size = new System.Drawing.Size(521, 428);
-            this.dgvDestination.TabIndex = 2;
-            // 
-            // 顧客番号DataGridViewTextBoxColumn
-            // 
-            this.顧客番号DataGridViewTextBoxColumn.DataPropertyName = "顧客番号";
-            this.顧客番号DataGridViewTextBoxColumn.HeaderText = "顧客番号";
-            this.顧客番号DataGridViewTextBoxColumn.Name = "顧客番号DataGridViewTextBoxColumn";
-            this.顧客番号DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 会社名DataGridViewTextBoxColumn
-            // 
-            this.会社名DataGridViewTextBoxColumn.DataPropertyName = "会社名";
-            this.会社名DataGridViewTextBoxColumn.HeaderText = "会社名";
-            this.会社名DataGridViewTextBoxColumn.Name = "会社名DataGridViewTextBoxColumn";
-            this.会社名DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 部署DataGridViewTextBoxColumn
-            // 
-            this.部署DataGridViewTextBoxColumn.DataPropertyName = "部署";
-            this.部署DataGridViewTextBoxColumn.HeaderText = "部署";
-            this.部署DataGridViewTextBoxColumn.Name = "部署DataGridViewTextBoxColumn";
-            this.部署DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 肩書DataGridViewTextBoxColumn
-            // 
-            this.肩書DataGridViewTextBoxColumn.DataPropertyName = "肩書";
-            this.肩書DataGridViewTextBoxColumn.HeaderText = "肩書";
-            this.肩書DataGridViewTextBoxColumn.Name = "肩書DataGridViewTextBoxColumn";
-            this.肩書DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 担当者DataGridViewTextBoxColumn
-            // 
-            this.担当者DataGridViewTextBoxColumn.DataPropertyName = "担当者";
-            this.担当者DataGridViewTextBoxColumn.HeaderText = "担当者";
-            this.担当者DataGridViewTextBoxColumn.Name = "担当者DataGridViewTextBoxColumn";
-            this.担当者DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 住所DataGridViewTextBoxColumn
-            // 
-            this.住所DataGridViewTextBoxColumn.DataPropertyName = "住所";
-            this.住所DataGridViewTextBoxColumn.HeaderText = "住所";
-            this.住所DataGridViewTextBoxColumn.Name = "住所DataGridViewTextBoxColumn";
-            this.住所DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // 電話番号DataGridViewTextBoxColumn
-            // 
-            this.電話番号DataGridViewTextBoxColumn.DataPropertyName = "電話番号";
-            this.電話番号DataGridViewTextBoxColumn.HeaderText = "電話番号";
-            this.電話番号DataGridViewTextBoxColumn.Name = "電話番号DataGridViewTextBoxColumn";
-            this.電話番号DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kitone顧客管理BindingSource
-            // 
-            this.kitone顧客管理BindingSource.DataMember = "kitone 顧客管理";
-            this.kitone顧客管理BindingSource.DataSource = this.kintoneDataSet;
-            // 
-            // kintoneDataSet
-            // 
-            this.kintoneDataSet.DataSetName = "KintoneDataSet";
-            this.kintoneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kitone_顧客管理TableAdapter
-            // 
-            this.kitone_顧客管理TableAdapter.ClearBeforeFill = true;
-            // 
-            // contactBindingSource
-            // 
-            this.contactBindingSource.DataMember = "Contact";
-            this.contactBindingSource.DataSource = this.salesforceDataSet;
-            // 
-            // salesforceDataSet
-            // 
-            this.salesforceDataSet.DataSetName = "SalesforceDataSet";
-            this.salesforceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contactTableAdapter
-            // 
-            this.contactTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -740,6 +602,180 @@
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             // 
+            // contactBindingSource
+            // 
+            this.contactBindingSource.DataMember = "Contact";
+            this.contactBindingSource.DataSource = this.salesforceDataSet;
+            // 
+            // salesforceDataSet
+            // 
+            this.salesforceDataSet.DataSetName = "SalesforceDataSet";
+            this.salesforceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // scRight
+            // 
+            this.scRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scRight.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scRight.Location = new System.Drawing.Point(0, 0);
+            this.scRight.Name = "scRight";
+            // 
+            // scRight.Panel1
+            // 
+            this.scRight.Panel1.Controls.Add(this.pbArrow);
+            this.scRight.Panel1.Controls.Add(this.btImport);
+            // 
+            // scRight.Panel2
+            // 
+            this.scRight.Panel2.Controls.Add(this.dgvDestination);
+            this.scRight.Size = new System.Drawing.Size(612, 428);
+            this.scRight.SplitterDistance = 87;
+            this.scRight.TabIndex = 0;
+            // 
+            // pbArrow
+            // 
+            this.pbArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbArrow.Image")));
+            this.pbArrow.Location = new System.Drawing.Point(16, 171);
+            this.pbArrow.Name = "pbArrow";
+            this.pbArrow.Size = new System.Drawing.Size(54, 33);
+            this.pbArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbArrow.TabIndex = 4;
+            this.pbArrow.TabStop = false;
+            // 
+            // btImport
+            // 
+            this.btImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btImport.Location = new System.Drawing.Point(7, 220);
+            this.btImport.Name = "btImport";
+            this.btImport.Size = new System.Drawing.Size(73, 27);
+            this.btImport.TabIndex = 3;
+            this.btImport.Text = "インポート";
+            this.btImport.UseVisualStyleBackColor = true;
+            this.btImport.Click += new System.EventHandler(this.btImport_Click);
+            // 
+            // dgvDestination
+            // 
+            this.dgvDestination.AllowUserToAddRows = false;
+            this.dgvDestination.AllowUserToDeleteRows = false;
+            this.dgvDestination.AllowUserToResizeRows = false;
+            this.dgvDestination.AutoGenerateColumns = false;
+            this.dgvDestination.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDestination.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn37,
+            this.dataGridViewTextBoxColumn40,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn36,
+            this.dataGridViewTextBoxColumn38,
+            this.dataGridViewTextBoxColumn39});
+            this.dgvDestination.DataSource = this.顧客リストBindingSource;
+            this.dgvDestination.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDestination.Location = new System.Drawing.Point(0, 0);
+            this.dgvDestination.Name = "dgvDestination";
+            this.dgvDestination.ReadOnly = true;
+            this.dgvDestination.RowTemplate.Height = 21;
+            this.dgvDestination.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDestination.Size = new System.Drawing.Size(521, 428);
+            this.dgvDestination.TabIndex = 2;
+            // 
+            // contactTableAdapter
+            // 
+            this.contactTableAdapter.ClearBeforeFill = true;
+            // 
+            // kintoneDataSet
+            // 
+            this.kintoneDataSet.DataSetName = "KintoneDataSet";
+            this.kintoneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 顧客リストBindingSource
+            // 
+            this.顧客リストBindingSource.DataMember = "顧客リスト";
+            this.顧客リストBindingSource.DataSource = this.kintoneDataSet;
+            // 
+            // 顧客リストTableAdapter
+            // 
+            this.顧客リストTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "レコード番号";
+            this.dataGridViewTextBoxColumn32.HeaderText = "レコード番号";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "会社名";
+            this.dataGridViewTextBoxColumn33.HeaderText = "会社名";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "部署名";
+            this.dataGridViewTextBoxColumn34.HeaderText = "部署名";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "担当者名";
+            this.dataGridViewTextBoxColumn35.HeaderText = "担当者名";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "住所";
+            this.dataGridViewTextBoxColumn37.HeaderText = "住所";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "メールアドレス";
+            this.dataGridViewTextBoxColumn40.HeaderText = "メールアドレス";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "RecordId";
+            this.dataGridViewTextBoxColumn29.HeaderText = "RecordId";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "Revision";
+            this.dataGridViewTextBoxColumn30.HeaderText = "Revision";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "郵便番号(数字のみ)";
+            this.dataGridViewTextBoxColumn36.HeaderText = "郵便番号(数字のみ)";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "TEL(数字のみ)";
+            this.dataGridViewTextBoxColumn38.HeaderText = "TEL(数字のみ)";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "FAX(数字のみ)";
+            this.dataGridViewTextBoxColumn39.HeaderText = "FAX(数字のみ)";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -754,16 +790,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesforceDataSet)).EndInit();
             this.scRight.Panel1.ResumeLayout(false);
             this.scRight.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scRight)).EndInit();
             this.scRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDestination)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kitone顧客管理BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kintoneDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesforceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.顧客リストBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -816,16 +852,6 @@
         private Salesforce2Kintone.SalesforceDataSet salesforceDataSet;
         private System.Windows.Forms.BindingSource contactBindingSource;
         private Salesforce2Kintone.SalesforceDataSetTableAdapters.ContactTableAdapter contactTableAdapter;
-        private KintoneDataSet kintoneDataSet;
-        private System.Windows.Forms.BindingSource kitone顧客管理BindingSource;
-        private KintoneDataSetTableAdapters.kitone_顧客管理TableAdapter kitone_顧客管理TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 顧客番号DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 会社名DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 部署DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 肩書DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 担当者DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 住所DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 電話番号DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -881,6 +907,36 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn レコード番号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 会社名DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 部署名DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 担当者名DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 住所DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn メールアドレスDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recordIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn revisionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 郵便番号数字のみDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tEL数字のみDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fAX数字のみDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 会社ロゴAggregateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 備考DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 緯度DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 経度DataGridViewTextBoxColumn;
+        private KintoneDataSet kintoneDataSet;
+        private System.Windows.Forms.BindingSource 顧客リストBindingSource;
+        private KintoneDataSetTableAdapters.顧客リストTableAdapter 顧客リストTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
     }
 }
 

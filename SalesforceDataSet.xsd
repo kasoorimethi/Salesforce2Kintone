@@ -42,6 +42,7 @@
                       Salesforce.Contact.CleanStatus, Salesforce.Contact.Level__c, 
                       Salesforce.Contact.Languages__c,
                       acc.Name AS AccountName,
+                      acc.BillingPostalCode AS AccountBillingPostalCode,
                       CONCAT(acc.BillingState, acc.BillingCity, acc.BillingStreet) AS AccountAddress
 FROM            Salesforce.Contact, Salesforce.Contact.Account acc</CommandText>
                     <Parameters />
@@ -108,6 +109,7 @@ FROM            Salesforce.Contact, Salesforce.Contact.Account acc</CommandText>
               <Mapping SourceColumn="Languages__c" DataSetColumn="Languages__c" />
               <Mapping SourceColumn="AccountName" DataSetColumn="AccountName" />
               <Mapping SourceColumn="AccountAddress" DataSetColumn="AccountAddress" />
+              <Mapping SourceColumn="AccountBillingPostalCode" DataSetColumn="AccountBillingPostalCode" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -119,7 +121,7 @@ FROM            Salesforce.Contact, Salesforce.Contact.Account acc</CommandText>
   <xs:element name="SalesforceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SalesforceDataSet" msprop:Generator_UserDSName="SalesforceDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Contact" msprop:Generator_TableClassName="ContactDataTable" msprop:Generator_TableVarName="tableContact" msprop:Generator_RowChangedName="ContactRowChanged" msprop:Generator_TablePropName="Contact" msprop:Generator_RowDeletingName="ContactRowDeleting" msprop:Generator_RowChangingName="ContactRowChanging" msprop:Generator_RowEvHandlerName="ContactRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactRowDeleted" msprop:Generator_RowClassName="ContactRow" msprop:Generator_UserTableName="Contact" msprop:Generator_RowEvArgName="ContactRowChangeEvent">
+        <xs:element name="Contact" msprop:Generator_TableClassName="ContactDataTable" msprop:Generator_TableVarName="tableContact" msprop:Generator_TablePropName="Contact" msprop:Generator_RowDeletingName="ContactRowDeleting" msprop:Generator_RowChangingName="ContactRowChanging" msprop:Generator_RowEvHandlerName="ContactRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactRowDeleted" msprop:Generator_UserTableName="Contact" msprop:Generator_RowChangedName="ContactRowChanged" msprop:Generator_RowEvArgName="ContactRowChangeEvent" msprop:Generator_RowClassName="ContactRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" minOccurs="0">
@@ -429,6 +431,13 @@ FROM            Salesforce.Contact, Salesforce.Contact.Account acc</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountBillingPostalCode" msprop:Generator_ColumnVarNameInTable="columnAccountBillingPostalCode" msprop:Generator_ColumnPropNameInRow="AccountBillingPostalCode" msprop:Generator_ColumnPropNameInTable="AccountBillingPostalCodeColumn" msprop:Generator_UserColumnName="AccountBillingPostalCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

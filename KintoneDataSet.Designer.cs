@@ -24,7 +24,7 @@ namespace Salesforce2Kintone {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class KintoneDataSet : global::System.Data.DataSet {
         
-        private kitone_顧客管理DataTable tablekitone_顧客管理;
+        private 顧客リストDataTable table顧客リスト;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Salesforce2Kintone {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["kitone 顧客管理"] != null)) {
-                    base.Tables.Add(new kitone_顧客管理DataTable(ds.Tables["kitone 顧客管理"]));
+                if ((ds.Tables["顧客リスト"] != null)) {
+                    base.Tables.Add(new 顧客リストDataTable(ds.Tables["顧客リスト"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Salesforce2Kintone {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public kitone_顧客管理DataTable kitone_顧客管理 {
+        public 顧客リストDataTable 顧客リスト {
             get {
-                return this.tablekitone_顧客管理;
+                return this.table顧客リスト;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Salesforce2Kintone {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["kitone 顧客管理"] != null)) {
-                    base.Tables.Add(new kitone_顧客管理DataTable(ds.Tables["kitone 顧客管理"]));
+                if ((ds.Tables["顧客リスト"] != null)) {
+                    base.Tables.Add(new 顧客リストDataTable(ds.Tables["顧客リスト"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Salesforce2Kintone {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablekitone_顧客管理 = ((kitone_顧客管理DataTable)(base.Tables["kitone 顧客管理"]));
+            this.table顧客リスト = ((顧客リストDataTable)(base.Tables["顧客リスト"]));
             if ((initTable == true)) {
-                if ((this.tablekitone_顧客管理 != null)) {
-                    this.tablekitone_顧客管理.InitVars();
+                if ((this.table顧客リスト != null)) {
+                    this.table顧客リスト.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Salesforce2Kintone {
             this.Namespace = "http://tempuri.org/KintoneDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablekitone_顧客管理 = new kitone_顧客管理DataTable();
-            base.Tables.Add(this.tablekitone_顧客管理);
+            this.table顧客リスト = new 顧客リストDataTable();
+            base.Tables.Add(this.table顧客リスト);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializekitone_顧客管理() {
+        private bool ShouldSerialize顧客リスト() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace Salesforce2Kintone {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void kitone_顧客管理RowChangeEventHandler(object sender, kitone_顧客管理RowChangeEvent e);
+        public delegate void 顧客リストRowChangeEventHandler(object sender, 顧客リストRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class kitone_顧客管理DataTable : global::System.Data.TypedTableBase<kitone_顧客管理Row> {
+        public partial class 顧客リストDataTable : global::System.Data.TypedTableBase<顧客リストRow> {
             
             private global::System.Data.DataColumn columnRecordId;
             
@@ -285,24 +285,34 @@ namespace Salesforce2Kintone {
             
             private global::System.Data.DataColumn columnAppId;
             
-            private global::System.Data.DataColumn column顧客番号;
+            private global::System.Data.DataColumn columnレコード番号;
             
             private global::System.Data.DataColumn column会社名;
             
-            private global::System.Data.DataColumn column部署;
+            private global::System.Data.DataColumn column部署名;
             
-            private global::System.Data.DataColumn column肩書;
+            private global::System.Data.DataColumn column担当者名;
             
-            private global::System.Data.DataColumn column担当者;
+            private global::System.Data.DataColumn _column郵便番号_数字のみ_;
             
             private global::System.Data.DataColumn column住所;
             
-            private global::System.Data.DataColumn column電話番号;
+            private global::System.Data.DataColumn _columnTEL_数字のみ_;
+            
+            private global::System.Data.DataColumn _columnFAX_数字のみ_;
+            
+            private global::System.Data.DataColumn columnメールアドレス;
+            
+            private global::System.Data.DataColumn column備考;
+            
+            private global::System.Data.DataColumn column緯度;
+            
+            private global::System.Data.DataColumn column経度;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理DataTable() {
-                this.TableName = "kitone 顧客管理";
+            public 顧客リストDataTable() {
+                this.TableName = "顧客リスト";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -310,7 +320,7 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal kitone_顧客管理DataTable(global::System.Data.DataTable table) {
+            internal 顧客リストDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -327,7 +337,7 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected kitone_顧客管理DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected 顧客リストDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -358,9 +368,9 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 顧客番号Column {
+            public global::System.Data.DataColumn レコード番号Column {
                 get {
-                    return this.column顧客番号;
+                    return this.columnレコード番号;
                 }
             }
             
@@ -374,25 +384,25 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 部署Column {
+            public global::System.Data.DataColumn 部署名Column {
                 get {
-                    return this.column部署;
+                    return this.column部署名;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 肩書Column {
+            public global::System.Data.DataColumn 担当者名Column {
                 get {
-                    return this.column肩書;
+                    return this.column担当者名;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 担当者Column {
+            public global::System.Data.DataColumn _郵便番号_数字のみ_Column {
                 get {
-                    return this.column担当者;
+                    return this._column郵便番号_数字のみ_;
                 }
             }
             
@@ -406,9 +416,49 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 電話番号Column {
+            public global::System.Data.DataColumn _TEL_数字のみ_Column {
                 get {
-                    return this.column電話番号;
+                    return this._columnTEL_数字のみ_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _FAX_数字のみ_Column {
+                get {
+                    return this._columnFAX_数字のみ_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn メールアドレスColumn {
+                get {
+                    return this.columnメールアドレス;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn 備考Column {
+                get {
+                    return this.column備考;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn 緯度Column {
+                get {
+                    return this.column緯度;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn 経度Column {
+                get {
+                    return this.column経度;
                 }
             }
             
@@ -423,61 +473,66 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理Row this[int index] {
+            public 顧客リストRow this[int index] {
                 get {
-                    return ((kitone_顧客管理Row)(this.Rows[index]));
+                    return ((顧客リストRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event kitone_顧客管理RowChangeEventHandler kitone_顧客管理RowChanging;
+            public event 顧客リストRowChangeEventHandler 顧客リストRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event kitone_顧客管理RowChangeEventHandler kitone_顧客管理RowChanged;
+            public event 顧客リストRowChangeEventHandler 顧客リストRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event kitone_顧客管理RowChangeEventHandler kitone_顧客管理RowDeleting;
+            public event 顧客リストRowChangeEventHandler 顧客リストRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event kitone_顧客管理RowChangeEventHandler kitone_顧客管理RowDeleted;
+            public event 顧客リストRowChangeEventHandler 顧客リストRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addkitone_顧客管理Row(kitone_顧客管理Row row) {
+            public void Add顧客リストRow(顧客リストRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理Row Addkitone_顧客管理Row(int RecordId, int Revision, int AppId, string 顧客番号, string 会社名, string 部署, string 肩書, string 担当者, string 住所, string 電話番号) {
-                kitone_顧客管理Row rowkitone_顧客管理Row = ((kitone_顧客管理Row)(this.NewRow()));
+            public 顧客リストRow Add顧客リストRow(int RecordId, int Revision, int AppId, string レコード番号, string 会社名, string 部署名, string 担当者名, string _郵便番号_数字のみ_, string 住所, string _TEL_数字のみ_, string _FAX_数字のみ_, string メールアドレス, string 備考, string 緯度, string 経度) {
+                顧客リストRow row顧客リストRow = ((顧客リストRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RecordId,
                         Revision,
                         AppId,
-                        顧客番号,
+                        レコード番号,
                         会社名,
-                        部署,
-                        肩書,
-                        担当者,
+                        部署名,
+                        担当者名,
+                        _郵便番号_数字のみ_,
                         住所,
-                        電話番号};
-                rowkitone_顧客管理Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowkitone_顧客管理Row);
-                return rowkitone_顧客管理Row;
+                        _TEL_数字のみ_,
+                        _FAX_数字のみ_,
+                        メールアドレス,
+                        備考,
+                        緯度,
+                        経度};
+                row顧客リストRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row顧客リストRow);
+                return row顧客リストRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理Row FindByRecordId(int RecordId) {
-                return ((kitone_顧客管理Row)(this.Rows.Find(new object[] {
+            public 顧客リストRow FindByRecordId(int RecordId) {
+                return ((顧客リストRow)(this.Rows.Find(new object[] {
                             RecordId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                kitone_顧客管理DataTable cln = ((kitone_顧客管理DataTable)(base.Clone()));
+                顧客リストDataTable cln = ((顧客リストDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -485,7 +540,7 @@ namespace Salesforce2Kintone {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new kitone_顧客管理DataTable();
+                return new 顧客リストDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -494,13 +549,18 @@ namespace Salesforce2Kintone {
                 this.columnRecordId = base.Columns["RecordId"];
                 this.columnRevision = base.Columns["Revision"];
                 this.columnAppId = base.Columns["AppId"];
-                this.column顧客番号 = base.Columns["顧客番号"];
+                this.columnレコード番号 = base.Columns["レコード番号"];
                 this.column会社名 = base.Columns["会社名"];
-                this.column部署 = base.Columns["部署"];
-                this.column肩書 = base.Columns["肩書"];
-                this.column担当者 = base.Columns["担当者"];
+                this.column部署名 = base.Columns["部署名"];
+                this.column担当者名 = base.Columns["担当者名"];
+                this._column郵便番号_数字のみ_ = base.Columns["郵便番号(数字のみ)"];
                 this.column住所 = base.Columns["住所"];
-                this.column電話番号 = base.Columns["電話番号"];
+                this._columnTEL_数字のみ_ = base.Columns["TEL(数字のみ)"];
+                this._columnFAX_数字のみ_ = base.Columns["FAX(数字のみ)"];
+                this.columnメールアドレス = base.Columns["メールアドレス"];
+                this.column備考 = base.Columns["備考"];
+                this.column緯度 = base.Columns["緯度"];
+                this.column経度 = base.Columns["経度"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,66 +572,84 @@ namespace Salesforce2Kintone {
                 base.Columns.Add(this.columnRevision);
                 this.columnAppId = new global::System.Data.DataColumn("AppId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppId);
-                this.column顧客番号 = new global::System.Data.DataColumn("顧客番号", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column顧客番号);
+                this.columnレコード番号 = new global::System.Data.DataColumn("レコード番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnレコード番号);
                 this.column会社名 = new global::System.Data.DataColumn("会社名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column会社名);
-                this.column部署 = new global::System.Data.DataColumn("部署", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column部署);
-                this.column肩書 = new global::System.Data.DataColumn("肩書", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column肩書);
-                this.column担当者 = new global::System.Data.DataColumn("担当者", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column担当者);
+                this.column部署名 = new global::System.Data.DataColumn("部署名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column部署名);
+                this.column担当者名 = new global::System.Data.DataColumn("担当者名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column担当者名);
+                this._column郵便番号_数字のみ_ = new global::System.Data.DataColumn("郵便番号(数字のみ)", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column郵便番号_数字のみ_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column郵便番号_数字のみ_");
+                this._column郵便番号_数字のみ_.ExtendedProperties.Add("Generator_UserColumnName", "郵便番号(数字のみ)");
+                base.Columns.Add(this._column郵便番号_数字のみ_);
                 this.column住所 = new global::System.Data.DataColumn("住所", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column住所);
-                this.column電話番号 = new global::System.Data.DataColumn("電話番号", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column電話番号);
+                this._columnTEL_数字のみ_ = new global::System.Data.DataColumn("TEL(数字のみ)", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnTEL_数字のみ_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnTEL_数字のみ_");
+                this._columnTEL_数字のみ_.ExtendedProperties.Add("Generator_UserColumnName", "TEL(数字のみ)");
+                base.Columns.Add(this._columnTEL_数字のみ_);
+                this._columnFAX_数字のみ_ = new global::System.Data.DataColumn("FAX(数字のみ)", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnFAX_数字のみ_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFAX_数字のみ_");
+                this._columnFAX_数字のみ_.ExtendedProperties.Add("Generator_UserColumnName", "FAX(数字のみ)");
+                base.Columns.Add(this._columnFAX_数字のみ_);
+                this.columnメールアドレス = new global::System.Data.DataColumn("メールアドレス", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnメールアドレス);
+                this.column備考 = new global::System.Data.DataColumn("備考", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column備考);
+                this.column緯度 = new global::System.Data.DataColumn("緯度", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column緯度);
+                this.column経度 = new global::System.Data.DataColumn("経度", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column経度);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRecordId}, true));
                 this.columnRecordId.AllowDBNull = false;
                 this.columnRecordId.ReadOnly = true;
                 this.columnRecordId.Unique = true;
+                this.columnRevision.AllowDBNull = false;
                 this.columnAppId.ReadOnly = true;
-                this.column顧客番号.AllowDBNull = false;
-                this.column顧客番号.MaxLength = 2000;
-                this.column会社名.AllowDBNull = false;
+                this.columnレコード番号.ReadOnly = true;
+                this.columnレコード番号.MaxLength = 2000;
                 this.column会社名.MaxLength = 2000;
-                this.column部署.AllowDBNull = false;
-                this.column部署.MaxLength = 2000;
-                this.column肩書.AllowDBNull = false;
-                this.column肩書.MaxLength = 2000;
-                this.column担当者.AllowDBNull = false;
-                this.column担当者.MaxLength = 2000;
-                this.column住所.AllowDBNull = false;
+                this.column部署名.MaxLength = 2000;
+                this.column担当者名.AllowDBNull = false;
+                this.column担当者名.MaxLength = 2000;
+                this._column郵便番号_数字のみ_.MaxLength = 7;
                 this.column住所.MaxLength = 2000;
-                this.column電話番号.AllowDBNull = false;
-                this.column電話番号.MaxLength = 2000;
+                this._columnTEL_数字のみ_.MaxLength = 2000;
+                this._columnFAX_数字のみ_.MaxLength = 2000;
+                this.columnメールアドレス.AllowDBNull = false;
+                this.columnメールアドレス.MaxLength = 2000;
+                this.column備考.MaxLength = 2000;
+                this.column緯度.MaxLength = 2000;
+                this.column経度.MaxLength = 2000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理Row Newkitone_顧客管理Row() {
-                return ((kitone_顧客管理Row)(this.NewRow()));
+            public 顧客リストRow New顧客リストRow() {
+                return ((顧客リストRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new kitone_顧客管理Row(builder);
+                return new 顧客リストRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(kitone_顧客管理Row);
+                return typeof(顧客リストRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.kitone_顧客管理RowChanged != null)) {
-                    this.kitone_顧客管理RowChanged(this, new kitone_顧客管理RowChangeEvent(((kitone_顧客管理Row)(e.Row)), e.Action));
+                if ((this.顧客リストRowChanged != null)) {
+                    this.顧客リストRowChanged(this, new 顧客リストRowChangeEvent(((顧客リストRow)(e.Row)), e.Action));
                 }
             }
             
@@ -579,8 +657,8 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.kitone_顧客管理RowChanging != null)) {
-                    this.kitone_顧客管理RowChanging(this, new kitone_顧客管理RowChangeEvent(((kitone_顧客管理Row)(e.Row)), e.Action));
+                if ((this.顧客リストRowChanging != null)) {
+                    this.顧客リストRowChanging(this, new 顧客リストRowChangeEvent(((顧客リストRow)(e.Row)), e.Action));
                 }
             }
             
@@ -588,8 +666,8 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.kitone_顧客管理RowDeleted != null)) {
-                    this.kitone_顧客管理RowDeleted(this, new kitone_顧客管理RowChangeEvent(((kitone_顧客管理Row)(e.Row)), e.Action));
+                if ((this.顧客リストRowDeleted != null)) {
+                    this.顧客リストRowDeleted(this, new 顧客リストRowChangeEvent(((顧客リストRow)(e.Row)), e.Action));
                 }
             }
             
@@ -597,14 +675,14 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.kitone_顧客管理RowDeleting != null)) {
-                    this.kitone_顧客管理RowDeleting(this, new kitone_顧客管理RowChangeEvent(((kitone_顧客管理Row)(e.Row)), e.Action));
+                if ((this.顧客リストRowDeleting != null)) {
+                    this.顧客リストRowDeleting(this, new 顧客リストRowChangeEvent(((顧客リストRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removekitone_顧客管理Row(kitone_顧客管理Row row) {
+            public void Remove顧客リストRow(顧客リストRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -631,7 +709,7 @@ namespace Salesforce2Kintone {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "kitone_顧客管理DataTable";
+                attribute2.FixedValue = "顧客リストDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -675,25 +753,25 @@ namespace Salesforce2Kintone {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class kitone_顧客管理Row : global::System.Data.DataRow {
+        public partial class 顧客リストRow : global::System.Data.DataRow {
             
-            private kitone_顧客管理DataTable tablekitone_顧客管理;
+            private 顧客リストDataTable table顧客リスト;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal kitone_顧客管理Row(global::System.Data.DataRowBuilder rb) : 
+            internal 顧客リストRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablekitone_顧客管理 = ((kitone_顧客管理DataTable)(this.Table));
+                this.table顧客リスト = ((顧客リストDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int RecordId {
                 get {
-                    return ((int)(this[this.tablekitone_顧客管理.RecordIdColumn]));
+                    return ((int)(this[this.table顧客リスト.RecordIdColumn]));
                 }
                 set {
-                    this[this.tablekitone_顧客管理.RecordIdColumn] = value;
+                    this[this.table顧客リスト.RecordIdColumn] = value;
                 }
             }
             
@@ -701,15 +779,10 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Revision {
                 get {
-                    try {
-                        return ((int)(this[this.tablekitone_顧客管理.RevisionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'kitone 顧客管理\' にある列 \'Revision\' の値は DBNull です。", e);
-                    }
+                    return ((int)(this[this.table顧客リスト.RevisionColumn]));
                 }
                 set {
-                    this[this.tablekitone_顧客管理.RevisionColumn] = value;
+                    this[this.table顧客リスト.RevisionColumn] = value;
                 }
             }
             
@@ -718,25 +791,30 @@ namespace Salesforce2Kintone {
             public int AppId {
                 get {
                     try {
-                        return ((int)(this[this.tablekitone_顧客管理.AppIdColumn]));
+                        return ((int)(this[this.table顧客リスト.AppIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'kitone 顧客管理\' にある列 \'AppId\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'AppId\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.AppIdColumn] = value;
+                    this[this.table顧客リスト.AppIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 顧客番号 {
+            public string レコード番号 {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.顧客番号Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト.レコード番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'レコード番号\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.顧客番号Column] = value;
+                    this[this.table顧客リスト.レコード番号Column] = value;
                 }
             }
             
@@ -744,43 +822,58 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string 会社名 {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.会社名Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト.会社名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'会社名\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.会社名Column] = value;
+                    this[this.table顧客リスト.会社名Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 部署 {
+            public string 部署名 {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.部署Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト.部署名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'部署名\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.部署Column] = value;
+                    this[this.table顧客リスト.部署名Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 肩書 {
+            public string 担当者名 {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.肩書Column]));
+                    return ((string)(this[this.table顧客リスト.担当者名Column]));
                 }
                 set {
-                    this[this.tablekitone_顧客管理.肩書Column] = value;
+                    this[this.table顧客リスト.担当者名Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 担当者 {
+            public string _郵便番号_数字のみ_ {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.担当者Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト._郵便番号_数字のみ_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'郵便番号(数字のみ)\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.担当者Column] = value;
+                    this[this.table顧客リスト._郵便番号_数字のみ_Column] = value;
                 }
             }
             
@@ -788,46 +881,239 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string 住所 {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.住所Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト.住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'住所\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.住所Column] = value;
+                    this[this.table顧客リスト.住所Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 電話番号 {
+            public string _TEL_数字のみ_ {
                 get {
-                    return ((string)(this[this.tablekitone_顧客管理.電話番号Column]));
+                    try {
+                        return ((string)(this[this.table顧客リスト._TEL_数字のみ_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'TEL(数字のみ)\' の値は DBNull です。", e);
+                    }
                 }
                 set {
-                    this[this.tablekitone_顧客管理.電話番号Column] = value;
+                    this[this.table顧客リスト._TEL_数字のみ_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRevisionNull() {
-                return this.IsNull(this.tablekitone_顧客管理.RevisionColumn);
+            public string _FAX_数字のみ_ {
+                get {
+                    try {
+                        return ((string)(this[this.table顧客リスト._FAX_数字のみ_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'FAX(数字のみ)\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.table顧客リスト._FAX_数字のみ_Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRevisionNull() {
-                this[this.tablekitone_顧客管理.RevisionColumn] = global::System.Convert.DBNull;
+            public string メールアドレス {
+                get {
+                    return ((string)(this[this.table顧客リスト.メールアドレスColumn]));
+                }
+                set {
+                    this[this.table顧客リスト.メールアドレスColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string 備考 {
+                get {
+                    try {
+                        return ((string)(this[this.table顧客リスト.備考Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'備考\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.table顧客リスト.備考Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string 緯度 {
+                get {
+                    try {
+                        return ((string)(this[this.table顧客リスト.緯度Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'緯度\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.table顧客リスト.緯度Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string 経度 {
+                get {
+                    try {
+                        return ((string)(this[this.table顧客リスト.経度Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'顧客リスト\' にある列 \'経度\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.table顧客リスト.経度Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAppIdNull() {
-                return this.IsNull(this.tablekitone_顧客管理.AppIdColumn);
+                return this.IsNull(this.table顧客リスト.AppIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAppIdNull() {
-                this[this.tablekitone_顧客管理.AppIdColumn] = global::System.Convert.DBNull;
+                this[this.table顧客リスト.AppIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isレコード番号Null() {
+                return this.IsNull(this.table顧客リスト.レコード番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setレコード番号Null() {
+                this[this.table顧客リスト.レコード番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is会社名Null() {
+                return this.IsNull(this.table顧客リスト.会社名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set会社名Null() {
+                this[this.table顧客リスト.会社名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is部署名Null() {
+                return this.IsNull(this.table顧客リスト.部署名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set部署名Null() {
+                this[this.table顧客リスト.部署名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_郵便番号_数字のみ_Null() {
+                return this.IsNull(this.table顧客リスト._郵便番号_数字のみ_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_郵便番号_数字のみ_Null() {
+                this[this.table顧客リスト._郵便番号_数字のみ_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is住所Null() {
+                return this.IsNull(this.table顧客リスト.住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set住所Null() {
+                this[this.table顧客リスト.住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_TEL_数字のみ_Null() {
+                return this.IsNull(this.table顧客リスト._TEL_数字のみ_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_TEL_数字のみ_Null() {
+                this[this.table顧客リスト._TEL_数字のみ_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_FAX_数字のみ_Null() {
+                return this.IsNull(this.table顧客リスト._FAX_数字のみ_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_FAX_数字のみ_Null() {
+                this[this.table顧客リスト._FAX_数字のみ_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is備考Null() {
+                return this.IsNull(this.table顧客リスト.備考Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set備考Null() {
+                this[this.table顧客リスト.備考Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is緯度Null() {
+                return this.IsNull(this.table顧客リスト.緯度Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set緯度Null() {
+                this[this.table顧客リスト.緯度Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is経度Null() {
+                return this.IsNull(this.table顧客リスト.経度Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set経度Null() {
+                this[this.table顧客リスト.経度Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -835,22 +1121,22 @@ namespace Salesforce2Kintone {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class kitone_顧客管理RowChangeEvent : global::System.EventArgs {
+        public class 顧客リストRowChangeEvent : global::System.EventArgs {
             
-            private kitone_顧客管理Row eventRow;
+            private 顧客リストRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理RowChangeEvent(kitone_顧客管理Row row, global::System.Data.DataRowAction action) {
+            public 顧客リストRowChangeEvent(顧客リストRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public kitone_顧客管理Row Row {
+            public 顧客リストRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -878,7 +1164,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class kitone_顧客管理TableAdapter : global::System.ComponentModel.Component {
+    public partial class 顧客リストTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.CData.Kintone.KintoneDataAdapter _adapter;
         
@@ -892,7 +1178,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public kitone_顧客管理TableAdapter() {
+        public 顧客リストTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -989,22 +1275,26 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
             this._adapter = new global::System.Data.CData.Kintone.KintoneDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "kitone 顧客管理";
+            tableMapping.DataSetTable = "顧客リスト";
             tableMapping.ColumnMappings.Add("RecordId", "RecordId");
             tableMapping.ColumnMappings.Add("Revision", "Revision");
             tableMapping.ColumnMappings.Add("AppId", "AppId");
-            tableMapping.ColumnMappings.Add("顧客番号", "顧客番号");
+            tableMapping.ColumnMappings.Add("レコード番号", "レコード番号");
             tableMapping.ColumnMappings.Add("会社名", "会社名");
-            tableMapping.ColumnMappings.Add("部署", "部署");
-            tableMapping.ColumnMappings.Add("肩書", "肩書");
-            tableMapping.ColumnMappings.Add("担当者", "担当者");
+            tableMapping.ColumnMappings.Add("部署名", "部署名");
+            tableMapping.ColumnMappings.Add("担当者名", "担当者名");
+            tableMapping.ColumnMappings.Add("郵便番号(数字のみ)", "郵便番号(数字のみ)");
             tableMapping.ColumnMappings.Add("住所", "住所");
-            tableMapping.ColumnMappings.Add("電話番号", "電話番号");
+            tableMapping.ColumnMappings.Add("TEL(数字のみ)", "TEL(数字のみ)");
+            tableMapping.ColumnMappings.Add("FAX(数字のみ)", "FAX(数字のみ)");
+            tableMapping.ColumnMappings.Add("メールアドレス", "メールアドレス");
+            tableMapping.ColumnMappings.Add("備考", "備考");
+            tableMapping.ColumnMappings.Add("緯度", "緯度");
+            tableMapping.ColumnMappings.Add("経度", "経度");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.CData.Kintone.KintoneCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [CData].[Kintone].[kitone 顧客管理] WHERE (([RecordId] = @Original_Record" +
-                "Id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [CData].[Kintone].[顧客リスト] WHERE (([RecordId] = @Original_RecordId))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.CData.Kintone.KintoneParameter param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@Original_RecordId";
@@ -1013,79 +1303,109 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.CData.Kintone.KintoneCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [CData].[Kintone].[kitone 顧客管理] ([Revision], [顧客番号], [会社名], [部署], [肩書" +
-                "], [担当者], [住所], [電話番号]) VALUES (@Revision, @顧客番号, @会社名, @部署, @肩書, @担当者, @住所, @電話" +
-                "番号)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [CData].[Kintone].[顧客リスト] ([Revision], [会社名], [部署名], [担当者名], [郵便番号(数字" +
+                "のみ)], [住所], [TEL(数字のみ)], [FAX(数字のみ)], [メールアドレス], [備考], [緯度], [経度]) VALUES (@Revi" +
+                "sion, @会社名, @部署名, @担当者名, @p1, @住所, @p3, @p5, @メールアドレス, @備考, @緯度, @経度)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@Revision";
             param.SourceColumn = "Revision";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@顧客番号";
-            param.SourceColumn = "顧客番号";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@会社名";
             param.SourceColumn = "会社名";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@部署";
-            param.SourceColumn = "部署";
+            param.ParameterName = "@部署名";
+            param.SourceColumn = "部署名";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@肩書";
-            param.SourceColumn = "肩書";
+            param.ParameterName = "@担当者名";
+            param.SourceColumn = "担当者名";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@担当者";
-            param.SourceColumn = "担当者";
+            param.ParameterName = "@p1";
+            param.SourceColumn = "郵便番号(数字のみ)";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@住所";
             param.SourceColumn = "住所";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@電話番号";
-            param.SourceColumn = "電話番号";
+            param.ParameterName = "@p3";
+            param.SourceColumn = "TEL(数字のみ)";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@p5";
+            param.SourceColumn = "FAX(数字のみ)";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@メールアドレス";
+            param.SourceColumn = "メールアドレス";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@備考";
+            param.SourceColumn = "備考";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@緯度";
+            param.SourceColumn = "緯度";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@経度";
+            param.SourceColumn = "経度";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.CData.Kintone.KintoneCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [CData].[Kintone].[kitone 顧客管理] SET [Revision] = @Revision, [顧客番号] = @顧客番号" +
-                ", [会社名] = @会社名, [部署] = @部署, [肩書] = @肩書, [担当者] = @担当者, [住所] = @住所, [電話番号] = @電話番号" +
-                " WHERE (([RecordId] = @Original_RecordId))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [CData].[Kintone].[顧客リスト] SET [Revision] = @Revision, [会社名] = @会社名, [部署名] = @部署名, [担当者名] = @担当者名, [郵便番号(数字のみ)] = @p1, [住所] = @住所, [TEL(数字のみ)] = @p3, [FAX(数字のみ)] = @p5, [メールアドレス] = @メールアドレス, [備考] = @備考, [緯度] = @緯度, [経度] = @経度 WHERE (([RecordId] = @Original_RecordId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@Revision";
             param.SourceColumn = "Revision";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@顧客番号";
-            param.SourceColumn = "顧客番号";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@会社名";
             param.SourceColumn = "会社名";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@部署";
-            param.SourceColumn = "部署";
+            param.ParameterName = "@部署名";
+            param.SourceColumn = "部署名";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@肩書";
-            param.SourceColumn = "肩書";
+            param.ParameterName = "@担当者名";
+            param.SourceColumn = "担当者名";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@担当者";
-            param.SourceColumn = "担当者";
+            param.ParameterName = "@p1";
+            param.SourceColumn = "郵便番号(数字のみ)";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@住所";
             param.SourceColumn = "住所";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
-            param.ParameterName = "@電話番号";
-            param.SourceColumn = "電話番号";
+            param.ParameterName = "@p3";
+            param.SourceColumn = "TEL(数字のみ)";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@p5";
+            param.SourceColumn = "FAX(数字のみ)";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@メールアドレス";
+            param.SourceColumn = "メールアドレス";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@備考";
+            param.SourceColumn = "備考";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@緯度";
+            param.SourceColumn = "緯度";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.CData.Kintone.KintoneParameter();
+            param.ParameterName = "@経度";
+            param.SourceColumn = "経度";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.CData.Kintone.KintoneParameter();
             param.ParameterName = "@Original_RecordId";
@@ -1107,8 +1427,8 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
             this._commandCollection = new global::System.Data.CData.Kintone.KintoneCommand[1];
             this._commandCollection[0] = new global::System.Data.CData.Kintone.KintoneCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [RecordId], [Revision], [AppId], [顧客番号], [会社名], [部署], [肩書], [担当者], [住所], [" +
-                "電話番号] FROM [kitone 顧客管理]";
+            this._commandCollection[0].CommandText = "SELECT [RecordId], [Revision], [AppId], [レコード番号], [会社名], [部署名], [担当者名], [郵便番号(数字の" +
+                "み)], [住所], [TEL(数字のみ)], [FAX(数字のみ)], [メールアドレス], [備考], [緯度], [経度] FROM [顧客リスト]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1116,7 +1436,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(KintoneDataSet.kitone_顧客管理DataTable dataTable) {
+        public virtual int Fill(KintoneDataSet.顧客リストDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1129,9 +1449,9 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual KintoneDataSet.kitone_顧客管理DataTable GetData() {
+        public virtual KintoneDataSet.顧客リストDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            KintoneDataSet.kitone_顧客管理DataTable dataTable = new KintoneDataSet.kitone_顧客管理DataTable();
+            KintoneDataSet.顧客リストDataTable dataTable = new KintoneDataSet.顧客リストDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1139,7 +1459,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(KintoneDataSet.kitone_顧客管理DataTable dataTable) {
+        public virtual int Update(KintoneDataSet.顧客リストDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1147,7 +1467,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(KintoneDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "kitone 顧客管理");
+            return this.Adapter.Update(dataSet, "顧客リスト");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1171,7 +1491,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(object Original_RecordId) {
             if ((Original_RecordId == null)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_RecordId");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(Original_RecordId));
@@ -1196,54 +1516,78 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(object Revision, object 顧客番号, object 会社名, object 部署, object 肩書, object 担当者, object 住所, object 電話番号) {
+        public virtual int Insert(object Revision, object 会社名, object 部署名, object 担当者名, object p1, object 住所, object p3, object p5, object メールアドレス, object 備考, object 緯度, object 経度) {
             if ((Revision == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Revision");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((object)(Revision));
             }
-            if ((顧客番号 == null)) {
-                throw new global::System.ArgumentNullException("顧客番号");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((object)(顧客番号));
-            }
             if ((会社名 == null)) {
-                throw new global::System.ArgumentNullException("会社名");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((object)(会社名));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((object)(会社名));
             }
-            if ((部署 == null)) {
-                throw new global::System.ArgumentNullException("部署");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((object)(部署));
-            }
-            if ((肩書 == null)) {
-                throw new global::System.ArgumentNullException("肩書");
+            if ((部署名 == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((object)(肩書));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((object)(部署名));
             }
-            if ((担当者 == null)) {
-                throw new global::System.ArgumentNullException("担当者");
+            if ((担当者名 == null)) {
+                throw new global::System.ArgumentNullException("担当者名");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((object)(担当者));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((object)(担当者名));
+            }
+            if ((p1 == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((object)(p1));
             }
             if ((住所 == null)) {
-                throw new global::System.ArgumentNullException("住所");
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((object)(住所));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((object)(住所));
             }
-            if ((電話番号 == null)) {
-                throw new global::System.ArgumentNullException("電話番号");
+            if ((p3 == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((object)(電話番号));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((object)(p3));
+            }
+            if ((p5 == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((object)(p5));
+            }
+            if ((メールアドレス == null)) {
+                throw new global::System.ArgumentNullException("メールアドレス");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((object)(メールアドレス));
+            }
+            if ((備考 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((object)(備考));
+            }
+            if ((緯度 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((object)(緯度));
+            }
+            if ((経度 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((object)(経度));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1265,60 +1609,84 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(object Revision, object 顧客番号, object 会社名, object 部署, object 肩書, object 担当者, object 住所, object 電話番号, object Original_RecordId) {
+        public virtual int Update(object Revision, object 会社名, object 部署名, object 担当者名, object p1, object 住所, object p3, object p5, object メールアドレス, object 備考, object 緯度, object 経度, object Original_RecordId) {
             if ((Revision == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Revision");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((object)(Revision));
             }
-            if ((顧客番号 == null)) {
-                throw new global::System.ArgumentNullException("顧客番号");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(顧客番号));
-            }
             if ((会社名 == null)) {
-                throw new global::System.ArgumentNullException("会社名");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(会社名));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(会社名));
             }
-            if ((部署 == null)) {
-                throw new global::System.ArgumentNullException("部署");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(部署));
-            }
-            if ((肩書 == null)) {
-                throw new global::System.ArgumentNullException("肩書");
+            if ((部署名 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(肩書));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(部署名));
             }
-            if ((担当者 == null)) {
-                throw new global::System.ArgumentNullException("担当者");
+            if ((担当者名 == null)) {
+                throw new global::System.ArgumentNullException("担当者名");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(担当者));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(担当者名));
+            }
+            if ((p1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(p1));
             }
             if ((住所 == null)) {
-                throw new global::System.ArgumentNullException("住所");
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(住所));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(住所));
             }
-            if ((電話番号 == null)) {
-                throw new global::System.ArgumentNullException("電話番号");
+            if ((p3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(電話番号));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(p3));
+            }
+            if ((p5 == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(p5));
+            }
+            if ((メールアドレス == null)) {
+                throw new global::System.ArgumentNullException("メールアドレス");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(メールアドレス));
+            }
+            if ((備考 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(備考));
+            }
+            if ((緯度 == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(緯度));
+            }
+            if ((経度 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(経度));
             }
             if ((Original_RecordId == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_RecordId");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(Original_RecordId));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(Original_RecordId));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1349,7 +1717,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private kitone_顧客管理TableAdapter _kitone_顧客管理TableAdapter;
+        private 顧客リストTableAdapter _顧客リストTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1371,12 +1739,12 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public kitone_顧客管理TableAdapter kitone_顧客管理TableAdapter {
+        public 顧客リストTableAdapter 顧客リストTableAdapter {
             get {
-                return this._kitone_顧客管理TableAdapter;
+                return this._顧客リストTableAdapter;
             }
             set {
-                this._kitone_顧客管理TableAdapter = value;
+                this._顧客リストTableAdapter = value;
             }
         }
         
@@ -1399,9 +1767,9 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._kitone_顧客管理TableAdapter != null) 
-                            && (this._kitone_顧客管理TableAdapter.Connection != null))) {
-                    return this._kitone_顧客管理TableAdapter.Connection;
+                if (((this._顧客リストTableAdapter != null) 
+                            && (this._顧客リストTableAdapter.Connection != null))) {
+                    return this._顧客リストTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1416,7 +1784,7 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._kitone_顧客管理TableAdapter != null)) {
+                if ((this._顧客リストTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1430,12 +1798,12 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(KintoneDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._kitone_顧客管理TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.kitone_顧客管理.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._顧客リストTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.顧客リスト.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._kitone_顧客管理TableAdapter.Update(updatedRows));
+                    result = (result + this._顧客リストTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1449,11 +1817,11 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(KintoneDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._kitone_顧客管理TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.kitone_顧客管理.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._顧客リストTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.顧客リスト.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._kitone_顧客管理TableAdapter.Update(addedRows));
+                    result = (result + this._顧客リストTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1467,11 +1835,11 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(KintoneDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._kitone_顧客管理TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.kitone_顧客管理.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._顧客リストTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.顧客リスト.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._kitone_顧客管理TableAdapter.Update(deletedRows));
+                    result = (result + this._顧客リストTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1514,8 +1882,8 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._kitone_顧客管理TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._kitone_顧客管理TableAdapter.Connection) == false))) {
+            if (((this._顧客リストTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._顧客リストTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -1549,13 +1917,13 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._kitone_顧客管理TableAdapter != null)) {
-                    revertConnections.Add(this._kitone_顧客管理TableAdapter, this._kitone_顧客管理TableAdapter.Connection);
-                    this._kitone_顧客管理TableAdapter.Connection = ((global::System.Data.CData.Kintone.KintoneConnection)(workConnection));
-                    this._kitone_顧客管理TableAdapter.Transaction = ((global::System.Data.CData.Kintone.KintoneTransaction)(workTransaction));
-                    if (this._kitone_顧客管理TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._kitone_顧客管理TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._kitone_顧客管理TableAdapter.Adapter);
+                if ((this._顧客リストTableAdapter != null)) {
+                    revertConnections.Add(this._顧客リストTableAdapter, this._顧客リストTableAdapter.Connection);
+                    this._顧客リストTableAdapter.Connection = ((global::System.Data.CData.Kintone.KintoneConnection)(workConnection));
+                    this._顧客リストTableAdapter.Transaction = ((global::System.Data.CData.Kintone.KintoneTransaction)(workTransaction));
+                    if (this._顧客リストTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._顧客リストTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._顧客リストTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1616,9 +1984,9 @@ namespace Salesforce2Kintone.KintoneDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._kitone_顧客管理TableAdapter != null)) {
-                    this._kitone_顧客管理TableAdapter.Connection = ((global::System.Data.CData.Kintone.KintoneConnection)(revertConnections[this._kitone_顧客管理TableAdapter]));
-                    this._kitone_顧客管理TableAdapter.Transaction = null;
+                if ((this._顧客リストTableAdapter != null)) {
+                    this._顧客リストTableAdapter.Connection = ((global::System.Data.CData.Kintone.KintoneConnection)(revertConnections[this._顧客リストTableAdapter]));
+                    this._顧客リストTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

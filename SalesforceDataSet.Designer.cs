@@ -395,6 +395,8 @@ namespace Salesforce2Kintone {
             
             private global::System.Data.DataColumn columnAccountAddress;
             
+            private global::System.Data.DataColumn columnAccountBillingPostalCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContactDataTable() {
@@ -894,6 +896,14 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AccountBillingPostalCodeColumn {
+                get {
+                    return this.columnAccountBillingPostalCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -987,7 +997,8 @@ namespace Salesforce2Kintone {
                         string Level__c, 
                         string Languages__c, 
                         string AccountName, 
-                        string AccountAddress) {
+                        string AccountAddress, 
+                        string AccountBillingPostalCode) {
                 ContactRow rowContactRow = ((ContactRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -1047,7 +1058,8 @@ namespace Salesforce2Kintone {
                         Level__c,
                         Languages__c,
                         AccountName,
-                        AccountAddress};
+                        AccountAddress,
+                        AccountBillingPostalCode};
                 rowContactRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContactRow);
                 return rowContactRow;
@@ -1135,6 +1147,7 @@ namespace Salesforce2Kintone {
                 this.columnLanguages__c = base.Columns["Languages__c"];
                 this.columnAccountName = base.Columns["AccountName"];
                 this.columnAccountAddress = base.Columns["AccountAddress"];
+                this.columnAccountBillingPostalCode = base.Columns["AccountBillingPostalCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1256,6 +1269,8 @@ namespace Salesforce2Kintone {
                 base.Columns.Add(this.columnAccountName);
                 this.columnAccountAddress = new global::System.Data.DataColumn("AccountAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccountAddress);
+                this.columnAccountBillingPostalCode = new global::System.Data.DataColumn("AccountBillingPostalCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountBillingPostalCode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -1320,6 +1335,7 @@ namespace Salesforce2Kintone {
                 this.columnAccountName.MaxLength = 255;
                 this.columnAccountAddress.ReadOnly = true;
                 this.columnAccountAddress.MaxLength = 2000;
+                this.columnAccountBillingPostalCode.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2385,6 +2401,22 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AccountBillingPostalCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableContact.AccountBillingPostalCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'AccountBillingPostalCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableContact.AccountBillingPostalCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIsDeletedNull() {
                 return this.IsNull(this.tableContact.IsDeletedColumn);
             }
@@ -3066,6 +3098,18 @@ namespace Salesforce2Kintone {
             public void SetAccountAddressNull() {
                 this[this.tableContact.AccountAddressColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAccountBillingPostalCodeNull() {
+                return this.IsNull(this.tableContact.AccountBillingPostalCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAccountBillingPostalCodeNull() {
+                this[this.tableContact.AccountBillingPostalCodeColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3285,6 +3329,7 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Languages__c", "Languages__c");
             tableMapping.ColumnMappings.Add("AccountName", "AccountName");
             tableMapping.ColumnMappings.Add("AccountAddress", "AccountAddress");
+            tableMapping.ColumnMappings.Add("AccountBillingPostalCode", "AccountBillingPostalCode");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3333,8 +3378,9 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
                 ", Salesforce.Contact.JigsawContactId, \r\n                      Salesforce.Contact" +
                 ".CleanStatus, Salesforce.Contact.Level__c, \r\n                      Salesforce.Co" +
                 "ntact.Languages__c,\r\n                      acc.Name AS AccountName,\r\n           " +
-                "           CONCAT(acc.BillingState, acc.BillingCity, acc.BillingStreet) AS Accou" +
-                "ntAddress\r\nFROM            Salesforce.Contact, Salesforce.Contact.Account acc";
+                "           acc.BillingPostalCode AS AccountBillingPostalCode,\r\n                 " +
+                "     CONCAT(acc.BillingState, acc.BillingCity, acc.BillingStreet) AS AccountAddr" +
+                "ess\r\nFROM            Salesforce.Contact, Salesforce.Contact.Account acc";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
