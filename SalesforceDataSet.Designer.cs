@@ -391,9 +391,9 @@ namespace Salesforce2Kintone {
             
             private global::System.Data.DataColumn columnLanguages__c;
             
-            private global::System.Data.DataColumn columnAccountName__c;
+            private global::System.Data.DataColumn columnAccountName;
             
-            private global::System.Data.DataColumn columnAccountAddress__c;
+            private global::System.Data.DataColumn columnAccountAddress;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -878,17 +878,17 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AccountName__cColumn {
+            public global::System.Data.DataColumn AccountNameColumn {
                 get {
-                    return this.columnAccountName__c;
+                    return this.columnAccountName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AccountAddress__cColumn {
+            public global::System.Data.DataColumn AccountAddressColumn {
                 get {
-                    return this.columnAccountAddress__c;
+                    return this.columnAccountAddress;
                 }
             }
             
@@ -986,8 +986,8 @@ namespace Salesforce2Kintone {
                         string CleanStatus, 
                         string Level__c, 
                         string Languages__c, 
-                        string AccountName__c, 
-                        string AccountAddress__c) {
+                        string AccountName, 
+                        string AccountAddress) {
                 ContactRow rowContactRow = ((ContactRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -1046,8 +1046,8 @@ namespace Salesforce2Kintone {
                         CleanStatus,
                         Level__c,
                         Languages__c,
-                        AccountName__c,
-                        AccountAddress__c};
+                        AccountName,
+                        AccountAddress};
                 rowContactRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContactRow);
                 return rowContactRow;
@@ -1133,8 +1133,8 @@ namespace Salesforce2Kintone {
                 this.columnCleanStatus = base.Columns["CleanStatus"];
                 this.columnLevel__c = base.Columns["Level__c"];
                 this.columnLanguages__c = base.Columns["Languages__c"];
-                this.columnAccountName__c = base.Columns["AccountName__c"];
-                this.columnAccountAddress__c = base.Columns["AccountAddress__c"];
+                this.columnAccountName = base.Columns["AccountName"];
+                this.columnAccountAddress = base.Columns["AccountAddress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1252,10 +1252,10 @@ namespace Salesforce2Kintone {
                 base.Columns.Add(this.columnLevel__c);
                 this.columnLanguages__c = new global::System.Data.DataColumn("Languages__c", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLanguages__c);
-                this.columnAccountName__c = new global::System.Data.DataColumn("AccountName__c", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountName__c);
-                this.columnAccountAddress__c = new global::System.Data.DataColumn("AccountAddress__c", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountAddress__c);
+                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountName);
+                this.columnAccountAddress = new global::System.Data.DataColumn("AccountAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountAddress);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -1266,7 +1266,6 @@ namespace Salesforce2Kintone {
                 this.columnMasterRecordId.ReadOnly = true;
                 this.columnMasterRecordId.MaxLength = 18;
                 this.columnAccountId.MaxLength = 18;
-                this.columnLastName.AllowDBNull = false;
                 this.columnLastName.MaxLength = 80;
                 this.columnFirstName.MaxLength = 40;
                 this.columnSalutation.MaxLength = 40;
@@ -1295,7 +1294,6 @@ namespace Salesforce2Kintone {
                 this.columnAssistantName.MaxLength = 40;
                 this.columnLeadSource.MaxLength = 40;
                 this.columnDescription.MaxLength = 32000;
-                this.columnOwnerId.AllowDBNull = false;
                 this.columnOwnerId.MaxLength = 18;
                 this.columnCreatedDate.ReadOnly = true;
                 this.columnCreatedById.ReadOnly = true;
@@ -1319,10 +1317,9 @@ namespace Salesforce2Kintone {
                 this.columnCleanStatus.MaxLength = 40;
                 this.columnLevel__c.MaxLength = 255;
                 this.columnLanguages__c.MaxLength = 100;
-                this.columnAccountName__c.ReadOnly = true;
-                this.columnAccountName__c.MaxLength = 1300;
-                this.columnAccountAddress__c.ReadOnly = true;
-                this.columnAccountAddress__c.MaxLength = 1300;
+                this.columnAccountName.MaxLength = 255;
+                this.columnAccountAddress.ReadOnly = true;
+                this.columnAccountAddress.MaxLength = 2000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1526,7 +1523,12 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string LastName {
                 get {
-                    return ((string)(this[this.tableContact.LastNameColumn]));
+                    try {
+                        return ((string)(this[this.tableContact.LastNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'LastName\' の値は DBNull です。", e);
+                    }
                 }
                 set {
                     this[this.tableContact.LastNameColumn] = value;
@@ -2033,7 +2035,12 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string OwnerId {
                 get {
-                    return ((string)(this[this.tableContact.OwnerIdColumn]));
+                    try {
+                        return ((string)(this[this.tableContact.OwnerIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'OwnerId\' の値は DBNull です。", e);
+                    }
                 }
                 set {
                     this[this.tableContact.OwnerIdColumn] = value;
@@ -2346,33 +2353,33 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AccountName__c {
+            public string AccountName {
                 get {
                     try {
-                        return ((string)(this[this.tableContact.AccountName__cColumn]));
+                        return ((string)(this[this.tableContact.AccountNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'AccountName__c\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'AccountName\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableContact.AccountName__cColumn] = value;
+                    this[this.tableContact.AccountNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AccountAddress__c {
+            public string AccountAddress {
                 get {
                     try {
-                        return ((string)(this[this.tableContact.AccountAddress__cColumn]));
+                        return ((string)(this[this.tableContact.AccountAddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'AccountAddress__c\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'Contact\' にある列 \'AccountAddress\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableContact.AccountAddress__cColumn] = value;
+                    this[this.tableContact.AccountAddressColumn] = value;
                 }
             }
             
@@ -2410,6 +2417,18 @@ namespace Salesforce2Kintone {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAccountIdNull() {
                 this[this.tableContact.AccountIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastNameNull() {
+                return this.IsNull(this.tableContact.LastNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastNameNull() {
+                this[this.tableContact.LastNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2786,6 +2805,18 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOwnerIdNull() {
+                return this.IsNull(this.tableContact.OwnerIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOwnerIdNull() {
+                this[this.tableContact.OwnerIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCreatedDateNull() {
                 return this.IsNull(this.tableContact.CreatedDateColumn);
             }
@@ -3014,26 +3045,26 @@ namespace Salesforce2Kintone {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAccountName__cNull() {
-                return this.IsNull(this.tableContact.AccountName__cColumn);
+            public bool IsAccountNameNull() {
+                return this.IsNull(this.tableContact.AccountNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAccountName__cNull() {
-                this[this.tableContact.AccountName__cColumn] = global::System.Convert.DBNull;
+            public void SetAccountNameNull() {
+                this[this.tableContact.AccountNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAccountAddress__cNull() {
-                return this.IsNull(this.tableContact.AccountAddress__cColumn);
+            public bool IsAccountAddressNull() {
+                return this.IsNull(this.tableContact.AccountAddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAccountAddress__cNull() {
-                this[this.tableContact.AccountAddress__cColumn] = global::System.Convert.DBNull;
+            public void SetAccountAddressNull() {
+                this[this.tableContact.AccountAddressColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3252,343 +3283,9 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CleanStatus", "CleanStatus");
             tableMapping.ColumnMappings.Add("Level__c", "Level__c");
             tableMapping.ColumnMappings.Add("Languages__c", "Languages__c");
-            tableMapping.ColumnMappings.Add("AccountName__c", "AccountName__c");
-            tableMapping.ColumnMappings.Add("AccountAddress__c", "AccountAddress__c");
+            tableMapping.ColumnMappings.Add("AccountName", "AccountName");
+            tableMapping.ColumnMappings.Add("AccountAddress", "AccountAddress");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.CData.Salesforce.SalesforceCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [CData].[Salesforce].[Contact] WHERE (([Id] = @Original_Id))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.CData.Salesforce.SalesforceParameter param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Original_Id";
-            param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.CData.Salesforce.SalesforceCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [CData].[Salesforce].[Contact] ([AccountId], [LastName], [FirstName], [Salutation], [OtherStreet], [OtherCity], [OtherState], [OtherPostalCode], [OtherCountry], [OtherLatitude], [OtherLongitude], [MailingStreet], [MailingCity], [MailingState], [MailingPostalCode], [MailingCountry], [MailingLatitude], [MailingLongitude], [Phone], [Fax], [MobilePhone], [HomePhone], [OtherPhone], [AssistantPhone], [ReportsToId], [Email], [Title], [Department], [AssistantName], [LeadSource], [Birthdate], [Description], [OwnerId], [EmailBouncedReason], [EmailBouncedDate], [Jigsaw], [CleanStatus], [Level__c], [Languages__c]) VALUES (@AccountId, @LastName, @FirstName, @Salutation, @OtherStreet, @OtherCity, @OtherState, @OtherPostalCode, @OtherCountry, @OtherLatitude, @OtherLongitude, @MailingStreet, @MailingCity, @MailingState, @MailingPostalCode, @MailingCountry, @MailingLatitude, @MailingLongitude, @Phone, @Fax, @MobilePhone, @HomePhone, @OtherPhone, @AssistantPhone, @ReportsToId, @Email, @Title, @Department, @AssistantName, @LeadSource, @Birthdate, @Description, @OwnerId, @EmailBouncedReason, @EmailBouncedDate, @Jigsaw, @CleanStatus, @Level__c, @Languages__c)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AccountId";
-            param.SourceColumn = "AccountId";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@LastName";
-            param.SourceColumn = "LastName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@FirstName";
-            param.SourceColumn = "FirstName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Salutation";
-            param.SourceColumn = "Salutation";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherStreet";
-            param.SourceColumn = "OtherStreet";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherCity";
-            param.SourceColumn = "OtherCity";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherState";
-            param.SourceColumn = "OtherState";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherPostalCode";
-            param.SourceColumn = "OtherPostalCode";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherCountry";
-            param.SourceColumn = "OtherCountry";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherLatitude";
-            param.SourceColumn = "OtherLatitude";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherLongitude";
-            param.SourceColumn = "OtherLongitude";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingStreet";
-            param.SourceColumn = "MailingStreet";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingCity";
-            param.SourceColumn = "MailingCity";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingState";
-            param.SourceColumn = "MailingState";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingPostalCode";
-            param.SourceColumn = "MailingPostalCode";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingCountry";
-            param.SourceColumn = "MailingCountry";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingLatitude";
-            param.SourceColumn = "MailingLatitude";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingLongitude";
-            param.SourceColumn = "MailingLongitude";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Phone";
-            param.SourceColumn = "Phone";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Fax";
-            param.SourceColumn = "Fax";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MobilePhone";
-            param.SourceColumn = "MobilePhone";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@HomePhone";
-            param.SourceColumn = "HomePhone";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherPhone";
-            param.SourceColumn = "OtherPhone";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AssistantPhone";
-            param.SourceColumn = "AssistantPhone";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@ReportsToId";
-            param.SourceColumn = "ReportsToId";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Email";
-            param.SourceColumn = "Email";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Title";
-            param.SourceColumn = "Title";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Department";
-            param.SourceColumn = "Department";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AssistantName";
-            param.SourceColumn = "AssistantName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@LeadSource";
-            param.SourceColumn = "LeadSource";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Birthdate";
-            param.SourceColumn = "Birthdate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Description";
-            param.SourceColumn = "Description";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OwnerId";
-            param.SourceColumn = "OwnerId";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@EmailBouncedReason";
-            param.SourceColumn = "EmailBouncedReason";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@EmailBouncedDate";
-            param.SourceColumn = "EmailBouncedDate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Jigsaw";
-            param.SourceColumn = "Jigsaw";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@CleanStatus";
-            param.SourceColumn = "CleanStatus";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Level__c";
-            param.SourceColumn = "Level__c";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Languages__c";
-            param.SourceColumn = "Languages__c";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.CData.Salesforce.SalesforceCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [CData].[Salesforce].[Contact] SET [AccountId] = @AccountId, [LastName] = @LastName, [FirstName] = @FirstName, [Salutation] = @Salutation, [OtherStreet] = @OtherStreet, [OtherCity] = @OtherCity, [OtherState] = @OtherState, [OtherPostalCode] = @OtherPostalCode, [OtherCountry] = @OtherCountry, [OtherLatitude] = @OtherLatitude, [OtherLongitude] = @OtherLongitude, [MailingStreet] = @MailingStreet, [MailingCity] = @MailingCity, [MailingState] = @MailingState, [MailingPostalCode] = @MailingPostalCode, [MailingCountry] = @MailingCountry, [MailingLatitude] = @MailingLatitude, [MailingLongitude] = @MailingLongitude, [Phone] = @Phone, [Fax] = @Fax, [MobilePhone] = @MobilePhone, [HomePhone] = @HomePhone, [OtherPhone] = @OtherPhone, [AssistantPhone] = @AssistantPhone, [ReportsToId] = @ReportsToId, [Email] = @Email, [Title] = @Title, [Department] = @Department, [AssistantName] = @AssistantName, [LeadSource] = @LeadSource, [Birthdate] = @Birthdate, [Description] = @Description, [OwnerId] = @OwnerId, [EmailBouncedReason] = @EmailBouncedReason, [EmailBouncedDate] = @EmailBouncedDate, [Jigsaw] = @Jigsaw, [CleanStatus] = @CleanStatus, [Level__c] = @Level__c, [Languages__c] = @Languages__c WHERE (([Id] = @Original_Id))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AccountId";
-            param.SourceColumn = "AccountId";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@LastName";
-            param.SourceColumn = "LastName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@FirstName";
-            param.SourceColumn = "FirstName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Salutation";
-            param.SourceColumn = "Salutation";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherStreet";
-            param.SourceColumn = "OtherStreet";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherCity";
-            param.SourceColumn = "OtherCity";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherState";
-            param.SourceColumn = "OtherState";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherPostalCode";
-            param.SourceColumn = "OtherPostalCode";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherCountry";
-            param.SourceColumn = "OtherCountry";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherLatitude";
-            param.SourceColumn = "OtherLatitude";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherLongitude";
-            param.SourceColumn = "OtherLongitude";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingStreet";
-            param.SourceColumn = "MailingStreet";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingCity";
-            param.SourceColumn = "MailingCity";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingState";
-            param.SourceColumn = "MailingState";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingPostalCode";
-            param.SourceColumn = "MailingPostalCode";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingCountry";
-            param.SourceColumn = "MailingCountry";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingLatitude";
-            param.SourceColumn = "MailingLatitude";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MailingLongitude";
-            param.SourceColumn = "MailingLongitude";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Phone";
-            param.SourceColumn = "Phone";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Fax";
-            param.SourceColumn = "Fax";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@MobilePhone";
-            param.SourceColumn = "MobilePhone";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@HomePhone";
-            param.SourceColumn = "HomePhone";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OtherPhone";
-            param.SourceColumn = "OtherPhone";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AssistantPhone";
-            param.SourceColumn = "AssistantPhone";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@ReportsToId";
-            param.SourceColumn = "ReportsToId";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Email";
-            param.SourceColumn = "Email";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Title";
-            param.SourceColumn = "Title";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Department";
-            param.SourceColumn = "Department";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@AssistantName";
-            param.SourceColumn = "AssistantName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@LeadSource";
-            param.SourceColumn = "LeadSource";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Birthdate";
-            param.SourceColumn = "Birthdate";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Description";
-            param.SourceColumn = "Description";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@OwnerId";
-            param.SourceColumn = "OwnerId";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@EmailBouncedReason";
-            param.SourceColumn = "EmailBouncedReason";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@EmailBouncedDate";
-            param.SourceColumn = "EmailBouncedDate";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Jigsaw";
-            param.SourceColumn = "Jigsaw";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@CleanStatus";
-            param.SourceColumn = "CleanStatus";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Level__c";
-            param.SourceColumn = "Level__c";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Languages__c";
-            param.SourceColumn = "Languages__c";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.CData.Salesforce.SalesforceParameter();
-            param.ParameterName = "@Original_Id";
-            param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3604,7 +3301,40 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             this._commandCollection = new global::System.Data.CData.Salesforce.SalesforceCommand[1];
             this._commandCollection[0] = new global::System.Data.CData.Salesforce.SalesforceCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Id, IsDeleted, MasterRecordId, AccountId, LastName, FirstName, Salutation, Name, OtherStreet, OtherCity, OtherState, OtherPostalCode, OtherCountry, OtherLatitude, OtherLongitude, MailingStreet, MailingCity, MailingState, MailingPostalCode, MailingCountry, MailingLatitude, MailingLongitude, Phone, Fax, MobilePhone, HomePhone, OtherPhone, AssistantPhone, ReportsToId, Email, Title, Department, AssistantName, LeadSource, Birthdate, Description, OwnerId, CreatedDate, CreatedById, LastModifiedDate, LastModifiedById, SystemModstamp, LastActivityDate, LastCURequestDate, LastCUUpdateDate, LastViewedDate, LastReferencedDate, EmailBouncedReason, EmailBouncedDate, IsEmailBounced, PhotoUrl, Jigsaw, JigsawContactId, CleanStatus, Level__c, Languages__c, AccountAddress__c, AccountName__c FROM Salesforce.Contact";
+            this._commandCollection[0].CommandText = "SELECT          Salesforce.Contact.Id, Salesforce.Contact.IsDeleted, \r\n          " +
+                "            Salesforce.Contact.MasterRecordId, Salesforce.Contact.AccountId, \r\n " +
+                "                     Salesforce.Contact.LastName, Salesforce.Contact.FirstName, " +
+                "\r\n                      Salesforce.Contact.Salutation, Salesforce.Contact.Name, " +
+                "\r\n                      Salesforce.Contact.OtherStreet, Salesforce.Contact.Other" +
+                "City, \r\n                      Salesforce.Contact.OtherState, Salesforce.Contact." +
+                "OtherPostalCode, \r\n                      Salesforce.Contact.OtherCountry, Salesf" +
+                "orce.Contact.OtherLatitude, \r\n                      Salesforce.Contact.OtherLong" +
+                "itude, Salesforce.Contact.MailingStreet, \r\n                      Salesforce.Cont" +
+                "act.MailingCity, Salesforce.Contact.MailingState, \r\n                      Salesf" +
+                "orce.Contact.MailingPostalCode, Salesforce.Contact.MailingCountry, \r\n           " +
+                "           Salesforce.Contact.MailingLatitude, Salesforce.Contact.MailingLongitu" +
+                "de, \r\n                      Salesforce.Contact.Phone, Salesforce.Contact.Fax, \r\n" +
+                "                      Salesforce.Contact.MobilePhone, Salesforce.Contact.HomePho" +
+                "ne, \r\n                      Salesforce.Contact.OtherPhone, Salesforce.Contact.As" +
+                "sistantPhone, \r\n                      Salesforce.Contact.ReportsToId, Salesforce" +
+                ".Contact.Email, \r\n                      Salesforce.Contact.Title, Salesforce.Con" +
+                "tact.Department, \r\n                      Salesforce.Contact.AssistantName, Sales" +
+                "force.Contact.LeadSource, \r\n                      Salesforce.Contact.Birthdate, " +
+                "Salesforce.Contact.Description, \r\n                      Salesforce.Contact.Owner" +
+                "Id, Salesforce.Contact.CreatedDate, \r\n                      Salesforce.Contact.C" +
+                "reatedById, Salesforce.Contact.LastModifiedDate, \r\n                      Salesfo" +
+                "rce.Contact.LastModifiedById, Salesforce.Contact.SystemModstamp, \r\n             " +
+                "         Salesforce.Contact.LastActivityDate, Salesforce.Contact.LastCURequestDa" +
+                "te, \r\n                      Salesforce.Contact.LastCUUpdateDate, Salesforce.Cont" +
+                "act.LastViewedDate, \r\n                      Salesforce.Contact.LastReferencedDat" +
+                "e, \r\n                      Salesforce.Contact.EmailBouncedReason, Salesforce.Con" +
+                "tact.EmailBouncedDate, \r\n                      Salesforce.Contact.IsEmailBounced" +
+                ", Salesforce.Contact.PhotoUrl, \r\n                      Salesforce.Contact.Jigsaw" +
+                ", Salesforce.Contact.JigsawContactId, \r\n                      Salesforce.Contact" +
+                ".CleanStatus, Salesforce.Contact.Level__c, \r\n                      Salesforce.Co" +
+                "ntact.Languages__c,\r\n                      acc.Name AS AccountName,\r\n           " +
+                "           CONCAT(acc.BillingState, acc.BillingCity, acc.BillingStreet) AS Accou" +
+                "ntAddress\r\nFROM            Salesforce.Contact, Salesforce.Contact.Account acc";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3631,657 +3361,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SalesforceDataSet.ContactDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SalesforceDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Contact");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(object Original_Id) {
-            if ((Original_Id == null)) {
-                throw new global::System.ArgumentNullException("Original_Id");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(Original_Id));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    object AccountId, 
-                    object LastName, 
-                    object FirstName, 
-                    object Salutation, 
-                    object OtherStreet, 
-                    object OtherCity, 
-                    object OtherState, 
-                    object OtherPostalCode, 
-                    object OtherCountry, 
-                    object OtherLatitude, 
-                    object OtherLongitude, 
-                    object MailingStreet, 
-                    object MailingCity, 
-                    object MailingState, 
-                    object MailingPostalCode, 
-                    object MailingCountry, 
-                    object MailingLatitude, 
-                    object MailingLongitude, 
-                    object Phone, 
-                    object Fax, 
-                    object MobilePhone, 
-                    object HomePhone, 
-                    object OtherPhone, 
-                    object AssistantPhone, 
-                    object ReportsToId, 
-                    object Email, 
-                    object Title, 
-                    object Department, 
-                    object AssistantName, 
-                    object LeadSource, 
-                    object Birthdate, 
-                    object Description, 
-                    object OwnerId, 
-                    object EmailBouncedReason, 
-                    object EmailBouncedDate, 
-                    object Jigsaw, 
-                    object CleanStatus, 
-                    object Level__c, 
-                    object Languages__c) {
-            if ((AccountId == null)) {
-                throw new global::System.ArgumentNullException("AccountId");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((object)(AccountId));
-            }
-            if ((LastName == null)) {
-                throw new global::System.ArgumentNullException("LastName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((object)(LastName));
-            }
-            if ((FirstName == null)) {
-                throw new global::System.ArgumentNullException("FirstName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((object)(FirstName));
-            }
-            if ((Salutation == null)) {
-                throw new global::System.ArgumentNullException("Salutation");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((object)(Salutation));
-            }
-            if ((OtherStreet == null)) {
-                throw new global::System.ArgumentNullException("OtherStreet");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((object)(OtherStreet));
-            }
-            if ((OtherCity == null)) {
-                throw new global::System.ArgumentNullException("OtherCity");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((object)(OtherCity));
-            }
-            if ((OtherState == null)) {
-                throw new global::System.ArgumentNullException("OtherState");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((object)(OtherState));
-            }
-            if ((OtherPostalCode == null)) {
-                throw new global::System.ArgumentNullException("OtherPostalCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((object)(OtherPostalCode));
-            }
-            if ((OtherCountry == null)) {
-                throw new global::System.ArgumentNullException("OtherCountry");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((object)(OtherCountry));
-            }
-            if ((OtherLatitude == null)) {
-                throw new global::System.ArgumentNullException("OtherLatitude");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((object)(OtherLatitude));
-            }
-            if ((OtherLongitude == null)) {
-                throw new global::System.ArgumentNullException("OtherLongitude");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((object)(OtherLongitude));
-            }
-            if ((MailingStreet == null)) {
-                throw new global::System.ArgumentNullException("MailingStreet");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((object)(MailingStreet));
-            }
-            if ((MailingCity == null)) {
-                throw new global::System.ArgumentNullException("MailingCity");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((object)(MailingCity));
-            }
-            if ((MailingState == null)) {
-                throw new global::System.ArgumentNullException("MailingState");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((object)(MailingState));
-            }
-            if ((MailingPostalCode == null)) {
-                throw new global::System.ArgumentNullException("MailingPostalCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((object)(MailingPostalCode));
-            }
-            if ((MailingCountry == null)) {
-                throw new global::System.ArgumentNullException("MailingCountry");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((object)(MailingCountry));
-            }
-            if ((MailingLatitude == null)) {
-                throw new global::System.ArgumentNullException("MailingLatitude");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((object)(MailingLatitude));
-            }
-            if ((MailingLongitude == null)) {
-                throw new global::System.ArgumentNullException("MailingLongitude");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((object)(MailingLongitude));
-            }
-            if ((Phone == null)) {
-                throw new global::System.ArgumentNullException("Phone");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((object)(Phone));
-            }
-            if ((Fax == null)) {
-                throw new global::System.ArgumentNullException("Fax");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((object)(Fax));
-            }
-            if ((MobilePhone == null)) {
-                throw new global::System.ArgumentNullException("MobilePhone");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((object)(MobilePhone));
-            }
-            if ((HomePhone == null)) {
-                throw new global::System.ArgumentNullException("HomePhone");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((object)(HomePhone));
-            }
-            if ((OtherPhone == null)) {
-                throw new global::System.ArgumentNullException("OtherPhone");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((object)(OtherPhone));
-            }
-            if ((AssistantPhone == null)) {
-                throw new global::System.ArgumentNullException("AssistantPhone");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((object)(AssistantPhone));
-            }
-            if ((ReportsToId == null)) {
-                throw new global::System.ArgumentNullException("ReportsToId");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((object)(ReportsToId));
-            }
-            if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((object)(Email));
-            }
-            if ((Title == null)) {
-                throw new global::System.ArgumentNullException("Title");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((object)(Title));
-            }
-            if ((Department == null)) {
-                throw new global::System.ArgumentNullException("Department");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((object)(Department));
-            }
-            if ((AssistantName == null)) {
-                throw new global::System.ArgumentNullException("AssistantName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((object)(AssistantName));
-            }
-            if ((LeadSource == null)) {
-                throw new global::System.ArgumentNullException("LeadSource");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((object)(LeadSource));
-            }
-            if ((Birthdate == null)) {
-                throw new global::System.ArgumentNullException("Birthdate");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((object)(Birthdate));
-            }
-            if ((Description == null)) {
-                throw new global::System.ArgumentNullException("Description");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((object)(Description));
-            }
-            if ((OwnerId == null)) {
-                throw new global::System.ArgumentNullException("OwnerId");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((object)(OwnerId));
-            }
-            if ((EmailBouncedReason == null)) {
-                throw new global::System.ArgumentNullException("EmailBouncedReason");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((object)(EmailBouncedReason));
-            }
-            if ((EmailBouncedDate == null)) {
-                throw new global::System.ArgumentNullException("EmailBouncedDate");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((object)(EmailBouncedDate));
-            }
-            if ((Jigsaw == null)) {
-                throw new global::System.ArgumentNullException("Jigsaw");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((object)(Jigsaw));
-            }
-            if ((CleanStatus == null)) {
-                throw new global::System.ArgumentNullException("CleanStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((object)(CleanStatus));
-            }
-            if ((Level__c == null)) {
-                throw new global::System.ArgumentNullException("Level__c");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((object)(Level__c));
-            }
-            if ((Languages__c == null)) {
-                throw new global::System.ArgumentNullException("Languages__c");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((object)(Languages__c));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    object AccountId, 
-                    object LastName, 
-                    object FirstName, 
-                    object Salutation, 
-                    object OtherStreet, 
-                    object OtherCity, 
-                    object OtherState, 
-                    object OtherPostalCode, 
-                    object OtherCountry, 
-                    object OtherLatitude, 
-                    object OtherLongitude, 
-                    object MailingStreet, 
-                    object MailingCity, 
-                    object MailingState, 
-                    object MailingPostalCode, 
-                    object MailingCountry, 
-                    object MailingLatitude, 
-                    object MailingLongitude, 
-                    object Phone, 
-                    object Fax, 
-                    object MobilePhone, 
-                    object HomePhone, 
-                    object OtherPhone, 
-                    object AssistantPhone, 
-                    object ReportsToId, 
-                    object Email, 
-                    object Title, 
-                    object Department, 
-                    object AssistantName, 
-                    object LeadSource, 
-                    object Birthdate, 
-                    object Description, 
-                    object OwnerId, 
-                    object EmailBouncedReason, 
-                    object EmailBouncedDate, 
-                    object Jigsaw, 
-                    object CleanStatus, 
-                    object Level__c, 
-                    object Languages__c, 
-                    object Original_Id) {
-            if ((AccountId == null)) {
-                throw new global::System.ArgumentNullException("AccountId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((object)(AccountId));
-            }
-            if ((LastName == null)) {
-                throw new global::System.ArgumentNullException("LastName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(LastName));
-            }
-            if ((FirstName == null)) {
-                throw new global::System.ArgumentNullException("FirstName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(FirstName));
-            }
-            if ((Salutation == null)) {
-                throw new global::System.ArgumentNullException("Salutation");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(Salutation));
-            }
-            if ((OtherStreet == null)) {
-                throw new global::System.ArgumentNullException("OtherStreet");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(OtherStreet));
-            }
-            if ((OtherCity == null)) {
-                throw new global::System.ArgumentNullException("OtherCity");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(OtherCity));
-            }
-            if ((OtherState == null)) {
-                throw new global::System.ArgumentNullException("OtherState");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(OtherState));
-            }
-            if ((OtherPostalCode == null)) {
-                throw new global::System.ArgumentNullException("OtherPostalCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(OtherPostalCode));
-            }
-            if ((OtherCountry == null)) {
-                throw new global::System.ArgumentNullException("OtherCountry");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(OtherCountry));
-            }
-            if ((OtherLatitude == null)) {
-                throw new global::System.ArgumentNullException("OtherLatitude");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(OtherLatitude));
-            }
-            if ((OtherLongitude == null)) {
-                throw new global::System.ArgumentNullException("OtherLongitude");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(OtherLongitude));
-            }
-            if ((MailingStreet == null)) {
-                throw new global::System.ArgumentNullException("MailingStreet");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(MailingStreet));
-            }
-            if ((MailingCity == null)) {
-                throw new global::System.ArgumentNullException("MailingCity");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(MailingCity));
-            }
-            if ((MailingState == null)) {
-                throw new global::System.ArgumentNullException("MailingState");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(MailingState));
-            }
-            if ((MailingPostalCode == null)) {
-                throw new global::System.ArgumentNullException("MailingPostalCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(MailingPostalCode));
-            }
-            if ((MailingCountry == null)) {
-                throw new global::System.ArgumentNullException("MailingCountry");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(MailingCountry));
-            }
-            if ((MailingLatitude == null)) {
-                throw new global::System.ArgumentNullException("MailingLatitude");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(MailingLatitude));
-            }
-            if ((MailingLongitude == null)) {
-                throw new global::System.ArgumentNullException("MailingLongitude");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(MailingLongitude));
-            }
-            if ((Phone == null)) {
-                throw new global::System.ArgumentNullException("Phone");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(Phone));
-            }
-            if ((Fax == null)) {
-                throw new global::System.ArgumentNullException("Fax");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(Fax));
-            }
-            if ((MobilePhone == null)) {
-                throw new global::System.ArgumentNullException("MobilePhone");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(MobilePhone));
-            }
-            if ((HomePhone == null)) {
-                throw new global::System.ArgumentNullException("HomePhone");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(HomePhone));
-            }
-            if ((OtherPhone == null)) {
-                throw new global::System.ArgumentNullException("OtherPhone");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(OtherPhone));
-            }
-            if ((AssistantPhone == null)) {
-                throw new global::System.ArgumentNullException("AssistantPhone");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(AssistantPhone));
-            }
-            if ((ReportsToId == null)) {
-                throw new global::System.ArgumentNullException("ReportsToId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(ReportsToId));
-            }
-            if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(Email));
-            }
-            if ((Title == null)) {
-                throw new global::System.ArgumentNullException("Title");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(Title));
-            }
-            if ((Department == null)) {
-                throw new global::System.ArgumentNullException("Department");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(Department));
-            }
-            if ((AssistantName == null)) {
-                throw new global::System.ArgumentNullException("AssistantName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(AssistantName));
-            }
-            if ((LeadSource == null)) {
-                throw new global::System.ArgumentNullException("LeadSource");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(LeadSource));
-            }
-            if ((Birthdate == null)) {
-                throw new global::System.ArgumentNullException("Birthdate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(Birthdate));
-            }
-            if ((Description == null)) {
-                throw new global::System.ArgumentNullException("Description");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(Description));
-            }
-            if ((OwnerId == null)) {
-                throw new global::System.ArgumentNullException("OwnerId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(OwnerId));
-            }
-            if ((EmailBouncedReason == null)) {
-                throw new global::System.ArgumentNullException("EmailBouncedReason");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(EmailBouncedReason));
-            }
-            if ((EmailBouncedDate == null)) {
-                throw new global::System.ArgumentNullException("EmailBouncedDate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(EmailBouncedDate));
-            }
-            if ((Jigsaw == null)) {
-                throw new global::System.ArgumentNullException("Jigsaw");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(Jigsaw));
-            }
-            if ((CleanStatus == null)) {
-                throw new global::System.ArgumentNullException("CleanStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(CleanStatus));
-            }
-            if ((Level__c == null)) {
-                throw new global::System.ArgumentNullException("Level__c");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(Level__c));
-            }
-            if ((Languages__c == null)) {
-                throw new global::System.ArgumentNullException("Languages__c");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(Languages__c));
-            }
-            if ((Original_Id == null)) {
-                throw new global::System.ArgumentNullException("Original_Id");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(Original_Id));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
     }
     
     /// <summary>
@@ -4296,8 +3375,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private ContactTableAdapter _contactTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -4310,20 +3387,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ContactTableAdapter ContactTableAdapter {
-            get {
-                return this._contactTableAdapter;
-            }
-            set {
-                this._contactTableAdapter = value;
             }
         }
         
@@ -4346,10 +3409,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._contactTableAdapter != null) 
-                            && (this._contactTableAdapter.Connection != null))) {
-                    return this._contactTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -4363,9 +3422,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._contactTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -4377,15 +3433,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(SalesforceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._contactTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Contact.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._contactTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -4396,14 +3443,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(SalesforceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._contactTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Contact.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._contactTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -4414,14 +3453,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(SalesforceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._contactTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Contact.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._contactTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -4461,10 +3492,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._contactTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._contactTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager には接続情報がありません。それぞれの TableAdapterManager TableAdapter プロパティを有効な" +
@@ -4496,15 +3523,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._contactTableAdapter != null)) {
-                    revertConnections.Add(this._contactTableAdapter, this._contactTableAdapter.Connection);
-                    this._contactTableAdapter.Connection = ((global::System.Data.CData.Salesforce.SalesforceConnection)(workConnection));
-                    this._contactTableAdapter.Transaction = ((global::System.Data.CData.Salesforce.SalesforceTransaction)(workTransaction));
-                    if (this._contactTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._contactTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._contactTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -4562,10 +3580,6 @@ namespace Salesforce2Kintone.SalesforceDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._contactTableAdapter != null)) {
-                    this._contactTableAdapter.Connection = ((global::System.Data.CData.Salesforce.SalesforceConnection)(revertConnections[this._contactTableAdapter]));
-                    this._contactTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

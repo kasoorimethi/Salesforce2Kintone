@@ -36,9 +36,6 @@
             this.pbArrow = new System.Windows.Forms.PictureBox();
             this.btImport = new System.Windows.Forms.Button();
             this.dgvDestination = new System.Windows.Forms.DataGridView();
-            this.kitone顧客管理BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kintoneDataSet = new Salesforce2Kintone.KintoneDataSet();
-            this.kitone_顧客管理TableAdapter = new Salesforce2Kintone.KintoneDataSetTableAdapters.kitone_顧客管理TableAdapter();
             this.顧客番号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.会社名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.部署DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,15 +43,18 @@
             this.担当者DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.住所DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.電話番号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitone顧客管理BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kintoneDataSet = new Salesforce2Kintone.KintoneDataSet();
+            this.kitone_顧客管理TableAdapter = new Salesforce2Kintone.KintoneDataSetTableAdapters.kitone_顧客管理TableAdapter();
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesforceDataSet = new Salesforce2Kintone.SalesforceDataSet();
             this.contactTableAdapter = new Salesforce2Kintone.SalesforceDataSetTableAdapters.ContactTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountName__c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountAddress__c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,11 +149,11 @@
             this.dgvSource.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSource.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.AccountName__c,
+            this.AccountName,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn4,
             this.nameDataGridViewTextBoxColumn,
-            this.AccountAddress__c,
+            this.AccountAddress,
             this.phoneDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
@@ -278,20 +278,6 @@
             this.dgvDestination.Size = new System.Drawing.Size(521, 428);
             this.dgvDestination.TabIndex = 2;
             // 
-            // kitone顧客管理BindingSource
-            // 
-            this.kitone顧客管理BindingSource.DataMember = "kitone 顧客管理";
-            this.kitone顧客管理BindingSource.DataSource = this.kintoneDataSet;
-            // 
-            // kintoneDataSet
-            // 
-            this.kintoneDataSet.DataSetName = "KintoneDataSet";
-            this.kintoneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kitone_顧客管理TableAdapter
-            // 
-            this.kitone_顧客管理TableAdapter.ClearBeforeFill = true;
-            // 
             // 顧客番号DataGridViewTextBoxColumn
             // 
             this.顧客番号DataGridViewTextBoxColumn.DataPropertyName = "顧客番号";
@@ -341,6 +327,20 @@
             this.電話番号DataGridViewTextBoxColumn.Name = "電話番号DataGridViewTextBoxColumn";
             this.電話番号DataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // kitone顧客管理BindingSource
+            // 
+            this.kitone顧客管理BindingSource.DataMember = "kitone 顧客管理";
+            this.kitone顧客管理BindingSource.DataSource = this.kintoneDataSet;
+            // 
+            // kintoneDataSet
+            // 
+            this.kintoneDataSet.DataSetName = "KintoneDataSet";
+            this.kintoneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kitone_顧客管理TableAdapter
+            // 
+            this.kitone_顧客管理TableAdapter.ClearBeforeFill = true;
+            // 
             // contactBindingSource
             // 
             this.contactBindingSource.DataMember = "Contact";
@@ -362,12 +362,12 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // AccountName__c
+            // AccountName
             // 
-            this.AccountName__c.DataPropertyName = "AccountName__c";
-            this.AccountName__c.HeaderText = "AccountName__c";
-            this.AccountName__c.Name = "AccountName__c";
-            this.AccountName__c.ReadOnly = true;
+            this.AccountName.DataPropertyName = "AccountName";
+            this.AccountName.HeaderText = "AccountName";
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -390,12 +390,12 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // AccountAddress__c
+            // AccountAddress
             // 
-            this.AccountAddress__c.DataPropertyName = "AccountAddress__c";
-            this.AccountAddress__c.HeaderText = "AccountAddress__c";
-            this.AccountAddress__c.Name = "AccountAddress__c";
-            this.AccountAddress__c.ReadOnly = true;
+            this.AccountAddress.DataPropertyName = "AccountAddress";
+            this.AccountAddress.HeaderText = "AccountAddress";
+            this.AccountAddress.Name = "AccountAddress";
+            this.AccountAddress.ReadOnly = true;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -827,11 +827,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 住所DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 電話番号DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName__c;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountAddress__c;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

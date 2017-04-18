@@ -17,7 +17,14 @@ namespace Salesforce2Kintone
             // TODO: このコード行はデータを 'kintoneDataSet.kitone_顧客管理' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.kitone_顧客管理TableAdapter.Fill(this.kintoneDataSet.kitone_顧客管理);
             // TODO: このコード行はデータを 'salesforceDataSet.Contact' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            this.contactTableAdapter.Fill(this.salesforceDataSet.Contact);
+            try
+            {
+                this.contactTableAdapter.Fill(this.salesforceDataSet.Contact);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
         }
 
         private void btImport_Click(object sender, EventArgs e)
@@ -44,8 +51,8 @@ namespace Salesforce2Kintone
                     }
                     
                     row.顧客番号 = selected.Row.Id;
-                    row.会社名 = selected.Row.IsAccountName__cNull() ? "-" : selected.Row.AccountName__c;
-                    row.住所 = selected.Row.IsAccountAddress__cNull() ? "-" : selected.Row.AccountAddress__c;
+                    row.会社名 = selected.Row.IsAccountNameNull() ? "-" : selected.Row.AccountName;
+                    row.住所 = selected.Row.IsAccountAddressNull() ? "-" : selected.Row.AccountAddress;
                     row.担当者 = selected.Row.IsNameNull() ? "-" : selected.Row.Name;
                     row.肩書 = selected.Row.IsTitleNull() ? "-" : selected.Row.Title;
                     row.部署 = selected.Row.IsDepartmentNull() ? "-" : selected.Row.Department;
